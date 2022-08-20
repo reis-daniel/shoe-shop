@@ -1,1 +1,3 @@
-# shoe-shop
+# Shoe Shop
+
+## Let's explore unique shoes.
