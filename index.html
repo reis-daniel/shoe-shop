@@ -5,65 +5,120 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Explore unique shoes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/css/normalize.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="./assets/js/app.js" defer></script>
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="#">Fashion</a>
-        <ul>
-          <li><a href="#">Catalogue</a></li>
-          <li><a href="#">Fashion</a></li>
-          <li><a href="#">Favourite</a></li>
-          <li><a href="#">Lifestyle</a></li>
-          <li><a href="#">Sign Up</a></li>
+    <!-- Utililies -->
+    <div>
+      <!-- Cookies Popup -->
+      <div class="cookiesStatus">
+        <h2 class="cookies-headline">We use cookies</h2>
+        <div class="cookies-buttons">
+          <button>Accept</button>
+          <button>Reject all</button>
+        </div>
+      </div>
+    </div>
+    <!-- Shopping Bag -->
+    <div class="shoppingBagContainer">
+      <button class="shoppingBagButton"></button>
+      <h5 class="shoppingBagNumber">0</h5>
+    </div>
+
+    <header class="header">
+      <!-- Navbar -->
+      <nav class="nav">
+        <a class="logo" href="#"
+          ><img class="logo-img" src="./assets/img/logo.svg" alt="brand logo"
+        /></a>
+        <!-- Navigation List -->
+        <ul class="navbar-list">
+          <li class="navbar-list-item">
+            <a class="navbar-list-link" href="#">Catalogue</a>
+          </li>
+          <li class="navbar-list-item">
+            <a class="navbar-list-link" href="#">Fashion</a>
+          </li>
+          <li class="navbar-list-item">
+            <a class="navbar-list-link" href="#">Favourite</a>
+          </li>
+          <li class="navbar-list-item">
+            <a class="navbar-list-link" href="#">Lifestyle</a>
+          </li>
+          <li class="navbar-list-item">
+            <a class="navbar-list-link sign-up" href="#">Sign Up</a>
+          </li>
         </ul>
       </nav>
-      <div>
-        <div>
-          <h1>
-            <span>Let's</span>
+      <!-- Header Showcase -->
+      <div class="header-showcase">
+        <!-- Showcase Information -->
+        <div class="showcase-information">
+          <h1 class="headline">
+            <span class="block highlight-a">Let's</span>
             Explore
-            <span>Unique</span>
+            <span class="block highlight-b">Unique</span>
             Shoes
           </h1>
-          <h4>Live for Influential and Innovative fashion!</h4>
-          <a href="#">Shop now!</a>
+          <h4 class="headline-detail">
+            Live for Influential and Innovative fashion!
+          </h4>
+          <a class="showcase-link" href="#">Shop now</a>
         </div>
-        <div>
-          <img src="" alt="Stylish show much wow" />
-        </div>
-      </div>
-      <div>
-        <h5>0</h5>
-        <button></button>
+        <!-- Showcase Image -->
       </div>
     </header>
-    <body>
-      // Shoe List
+    <main class="main">
       <section>
-        <h2>New Arrivals</h2>
-        // Filter shoes
-        <form action="">
-          <select name="filter" id="filter">
-            <option value="">Filter A</option>
-            <option value="">Filter B</option>
-            <option value="">Filter C</option>
-            <option value="">Filter D</option>
-          </select>
-        </form>
+        <div class="section-header">
+          <div><h2 class="section-headline">New Arrivals</h2></div>
+
+          <form class="filterForm" action="">
+            <div class="brand-filter filterContainer">
+              <label class="filter-label" for="filter">Brand</label>
+              <select class="filter-dropDown" name="filter" id="filter">
+                <option value="">Filter A</option>
+                <option value="">Filter B</option>
+                <option value="">Filter C</option>
+                <option value="">Filter D</option>
+              </select>
+            </div>
+            <div class="size-filter filterContainer">
+              <label class="filter-label" for="filter">Size</label>
+              <select class="filter-dropDown" name="filter" id="filter">
+                <option value="">Filter A</option>
+                <option value="">Filter B</option>
+                <option value="">Filter C</option>
+                <option value="">Filter D</option>
+              </select>
+            </div>
+            <div class="price-filter filterContainer">
+              <label class="filter-label" for="filter">Price</label>
+              <select class="filter-dropDown" name="filter" id="filter">
+                <option value="">Filter A</option>
+                <option value="">Filter B</option>
+                <option value="">Filter C</option>
+                <option value="">Filter D</option>
+              </select>
+            </div>
+          </form>
+        </div>
         <div id="content"></div>
       </section>
 
-      // Download the app
       <section></section>
 
-      // Newsletter
       <section></section>
-    </body>
-    <footer>
+    </main>
+    <footer class="footer">
       <div>
         <div>
           <h3>Fashion</h3>
