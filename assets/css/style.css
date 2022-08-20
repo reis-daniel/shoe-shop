@@ -1,0 +1,13 @@
+#content {
+  display: grid;
+  grid-template-areas:
+    "A A A"
+    "B B B"
+    "C C C"
+    "D D D";
+}
+
+img {
+  height: 50%;
+  width: 50%;
+}
