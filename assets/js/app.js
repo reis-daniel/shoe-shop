@@ -88,7 +88,9 @@ const data = [
 
 // Global variables
 const content = document.querySelector("#content");
+const newsletterForm = document.querySelector(".newsletter-input");
 let detailOpen = false;
+let shoppingBackCounter = 0;
 
 // Function to create a shoe div
 const createData = (obj, index) => {
@@ -161,8 +163,27 @@ const createData = (obj, index) => {
 
 // Add Size to shoppingbag
 const addToShoppingBag = () => {
-  console.log("Hinzugefügt!");
+  let number = document.querySelector(".shoppingBagNumber");
+  shoppingBackCounter++;
+  number.innerText = shoppingBackCounter;
 };
+
+// Newsletter
+newsletterForm.addEventListener("submit", (e) => {
+  let mailInput = document.querySelector(".newsletter-textInput");
+  if (mailInput.length > 0) {
+    newsletterForm.setAttribute("id", "hidden");
+    let headlineElem = document.querySelector(".newsletter-headline");
+    let pElem = document.querySelector(".newsletter-p");
+    headlineElem.innerText = "THANK YOU!";
+    pElem.innerText = "You will get our response shortly!";
+  } else {
+    newsletterForm.classList.add("invalid");
+    mailInput.setAttribute("placeholder", "Enter valid email!");
+  }
+
+  e.preventDefault();
+});
 
 // Open Article Detail Button
 const openArticleDetail = (index) => {
@@ -182,6 +203,35 @@ const openArticleDetail = (index) => {
   }
   detailOpen = !detailOpen;
 };
+
+// Cookies
+const cookieContainer = document.querySelector(".cookiesStatus");
+const cookieAcceptBtn = document.querySelector(".accept");
+const cookieRejectBtn = document.querySelector(".reject");
+let userCookies = document.cookie;
+
+// Check if username of cookies is in userlist
+const handleCookieCheck = (cookie) => {
+  if (cookie.length > 0) {
+    cookieContainer.classList.add("validCookies");
+  }
+};
+
+cookieAcceptBtn.addEventListener("click", () => {
+  const date = new Date();
+  date.setUTCDate(date.getUTCDate() + 5);
+  document.cookie = `username=${"acceptedUser"}; expires=${date}; path=/`;
+  cookieContainer.classList.add("validCookies");
+});
+cookieRejectBtn.addEventListener("click", () => {
+  const date = new Date();
+  date.setUTCDate(date.getUTCDate() + 5);
+  document.cookie = `username=${"sessionUser"};`;
+  cookieContainer.classList.add("validCookies");
+});
+
+// Check cookies of user and unlock modal
+handleCookieCheck(userCookies);
 
 data.map((article, index) => {
   createData(article, index);

@@ -16,6 +16,19 @@
     <script src="./assets/js/app.js" defer></script>
   </head>
   <body>
+    <!-- Utililies -->
+    <div>
+      <!-- Cookies Popup -->
+      <div class="cookiesStatus">
+        <div class="cookiesContainer">
+          <h2 class="cookies-headline">We use cookies</h2>
+          <div class="cookies-buttons">
+            <button class="accept">Accept</button>
+            <button class="reject">Reject all</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <header class="header">
       <!-- Navbar -->
       <nav class="nav">
@@ -58,18 +71,6 @@
           <a class="showcase-link" href="#">Shop now</a>
         </div>
         <!-- Showcase Image -->
-      </div>
-
-      <!-- Utililies -->
-      <div>
-        <!-- Cookies Popup -->
-        <div class="cookiesStatus">
-          <h2 class="cookies-headline">We use cookies</h2>
-          <div class="cookies-buttons">
-            <button>Accept</button>
-            <button>Reject all</button>
-          </div>
-        </div>
       </div>
 
       <!-- Shopping Bag -->
@@ -146,7 +147,7 @@
         <p class="newsletter-p">
           Type your email down below and be young wild generation
         </p>
-        <div class="newsletter-input">
+        <form class="newsletter-input">
           <input
             class="newsletter-textInput"
             type="email"
@@ -155,7 +156,7 @@
             placeholder="Add your email here"
           />
           <button class="newsletter-submit">Send</button>
-        </div>
+        </form>
       </section>
     </main>
     <footer class="footer">
