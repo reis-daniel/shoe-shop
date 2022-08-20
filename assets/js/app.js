@@ -95,11 +95,13 @@ const createData = (obj, index) => {
   const mainContainer = document.createElement("div");
   mainContainer.classList.add("article");
   const detailContainer = document.createElement("div");
+  detailContainer.classList.add("article-details");
   const img = document.createElement("img");
   const title = document.createElement("h2");
   const price = document.createElement("p");
   const brand = document.createElement("p");
   const sizeList = document.createElement("ul");
+  sizeList.classList.add("sizeList");
 
   // Append Element
   detailContainer.append(title, price, brand, sizeList);
@@ -108,6 +110,7 @@ const createData = (obj, index) => {
 
   // Set Attributes
   img.src = obj.img;
+  img.classList.add("article-image");
   title.innerText = obj.name + " " + index;
   price.innerText = obj.price;
   brand.innerText = obj.brand;
@@ -115,18 +118,25 @@ const createData = (obj, index) => {
   // Map over Size-Array and create list of sizes
   obj.sizes.map((size) => {
     const sizeItem = document.createElement("li");
-    const sizeLink = document.createElement("a");
-    sizeLink.innerText = size;
-    sizeItem.append(sizeLink);
+    const sizeButton = document.createElement("button");
+    sizeButton.addEventListener("click", addToShoppingBag);
+    sizeButton.classList.add("sizeButton");
+    sizeButton.innerText = size;
+    sizeItem.append(sizeButton);
     sizeList.append(sizeItem);
   });
 
   // Give classnames for grid-template-ares:
   // 0-2 = A, 3-5 = B, 6-8 = C, 9-11 = D
-  //   if (index <= 2) mainContainer.classList.add(`grid_a${index}`);
-  //   else if (index <= 5) mainContainer.classList.add(`grid_b${index}`);
-  //   else if (index <= 8) mainContainer.classList.add(`grid_c${index}`);
-  //   else if (index <= 11) mainContainer.classList.add(`grid_d${index}`);
+  if (index <= 2) mainContainer.classList.add(`grid_a${index}`);
+  else if (index <= 5) mainContainer.classList.add(`grid_b${index}`);
+  else if (index <= 8) mainContainer.classList.add(`grid_c${index}`);
+  else if (index <= 11) mainContainer.classList.add(`grid_d${index}`);
+};
+
+// Add Size to shoppingbag
+const addToShoppingBag = () => {
+  console.log("Hinzugefügt!");
 };
 
 data.map((article, index) => {
