@@ -288,6 +288,10 @@
   cursor: pointer;
 }
 
+.filterArticleBtn {
+  height: 2rem;
+}
+
 /* ====== Download Section */
 
 .download {

@@ -116,9 +116,11 @@ const createData = (obj, index) => {
 
   const openDetailBtn = document.createElement("button");
   openDetailBtn.classList.add("openDetailBtn", `btn${index}`);
-  openDetailBtn.addEventListener("click", () => {
-    openArticleDetail(index);
-  });
+  openDetailBtn.setAttribute("value", `${index}`);
+
+  // openDetailBtn.addEventListener("click", () => {
+  //   openArticleDetail(index);
+  // });
 
   const price = document.createElement("p");
   const brand = document.createElement("p");
@@ -170,6 +172,7 @@ const addToShoppingBag = () => {
 
 // Newsletter
 newsletterForm.addEventListener("submit", (e) => {
+  e.preventDefault();
   let mailInput = document.querySelector(".newsletter-textInput");
   if (mailInput.length > 0) {
     newsletterForm.setAttribute("id", "hidden");
@@ -181,8 +184,6 @@ newsletterForm.addEventListener("submit", (e) => {
     newsletterForm.classList.add("invalid");
     mailInput.setAttribute("placeholder", "Enter valid email!");
   }
-
-  e.preventDefault();
 });
 
 // Open Article Detail Button
@@ -233,8 +234,18 @@ cookieRejectBtn.addEventListener("click", () => {
 // Check cookies of user and unlock modal
 handleCookieCheck(userCookies);
 
+const filterBtn = document.querySelector(".filterArticleBtn");
+
 data.map((article, index) => {
   createData(article, index);
+});
+
+let openDetailBtns = document.querySelectorAll(".openDetailBtn");
+
+openDetailBtns.forEach((btn) => {
+  btn.addEventListener("click", (e) => {
+    openArticleDetail(e.target.value);
+  });
 });
 
 //* Filter functionality
