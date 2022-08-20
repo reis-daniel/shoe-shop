@@ -88,6 +88,7 @@ const data = [
 
 // Global variables
 const content = document.querySelector("#content");
+let detailOpen = false;
 
 // Function to create a shoe div
 const createData = (obj, index) => {
@@ -98,18 +99,28 @@ const createData = (obj, index) => {
   detailContainer.classList.add("article-details");
   const dropDownContainer = document.createElement("div");
   dropDownContainer.classList.add("dropDownContainer");
+
   const priceContainer = document.createElement("div");
-  priceContainer.classList.add("priceContainer");
+  priceContainer.classList.add("priceContainer", `container${index}`, "closed");
+
   const headlineContainer = document.createElement("div");
   headlineContainer.classList.add("headlineContainer");
+
   const img = document.createElement("img");
   const title = document.createElement("h2");
+
   const addBtn = document.createElement("button");
   addBtn.classList.add("addButton");
+
   const openDetailBtn = document.createElement("button");
-  openDetailBtn.classList.add("openDetailBtn");
+  openDetailBtn.classList.add("openDetailBtn", `btn${index}`);
+  openDetailBtn.addEventListener("click", () => {
+    openArticleDetail(index);
+  });
+
   const price = document.createElement("p");
   const brand = document.createElement("p");
+
   const sizeList = document.createElement("ul");
   sizeList.classList.add("sizeList");
 
@@ -117,7 +128,7 @@ const createData = (obj, index) => {
   headlineContainer.append(title, addBtn);
   dropDownContainer.append(price, openDetailBtn);
   priceContainer.append(brand, sizeList);
-  detailContainer.append(headlineContainer, dropDownContainer);
+  detailContainer.append(headlineContainer, dropDownContainer, priceContainer);
   mainContainer.append(img, detailContainer);
   content.append(mainContainer);
 
@@ -151,6 +162,25 @@ const createData = (obj, index) => {
 // Add Size to shoppingbag
 const addToShoppingBag = () => {
   console.log("Hinzugefügt!");
+};
+
+// Open Article Detail Button
+const openArticleDetail = (index) => {
+  const priceContainer = document.querySelector(`.container${index}`);
+  const openDetailBtn = document.querySelector(`.openDetailBtn.btn${index}`);
+
+  if (!detailOpen) {
+    priceContainer.classList.remove("closed");
+    priceContainer.classList.add("open");
+    openDetailBtn.classList.add("active");
+    openDetailBtn.classList.remove("inactive");
+  } else {
+    priceContainer.classList.remove("open");
+    priceContainer.classList.add("closed");
+    openDetailBtn.classList.remove("active");
+    openDetailBtn.classList.add("inactive");
+  }
+  detailOpen = !detailOpen;
 };
 
 data.map((article, index) => {
