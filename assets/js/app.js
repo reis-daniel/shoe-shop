@@ -96,22 +96,36 @@ const createData = (obj, index) => {
   mainContainer.classList.add("article");
   const detailContainer = document.createElement("div");
   detailContainer.classList.add("article-details");
+  const dropDownContainer = document.createElement("div");
+  dropDownContainer.classList.add("dropDownContainer");
+  const priceContainer = document.createElement("div");
+  priceContainer.classList.add("priceContainer");
+  const headlineContainer = document.createElement("div");
+  headlineContainer.classList.add("headlineContainer");
   const img = document.createElement("img");
   const title = document.createElement("h2");
+  const addBtn = document.createElement("button");
+  addBtn.classList.add("addButton");
+  const openDetailBtn = document.createElement("button");
+  openDetailBtn.classList.add("openDetailBtn");
   const price = document.createElement("p");
   const brand = document.createElement("p");
   const sizeList = document.createElement("ul");
   sizeList.classList.add("sizeList");
 
   // Append Element
-  detailContainer.append(title, price, brand, sizeList);
+  headlineContainer.append(title, addBtn);
+  dropDownContainer.append(price, openDetailBtn);
+  priceContainer.append(brand, sizeList);
+  detailContainer.append(headlineContainer, dropDownContainer);
   mainContainer.append(img, detailContainer);
   content.append(mainContainer);
 
   // Set Attributes
   img.src = obj.img;
   img.classList.add("article-image");
-  title.innerText = obj.name + " " + index;
+  addBtn.innerText = "+";
+  title.innerText = obj.name;
   price.innerText = obj.price;
   brand.innerText = obj.brand;
 
